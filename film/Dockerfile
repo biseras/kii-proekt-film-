@@ -10,6 +10,6 @@ RUN mvn -f /home/app/pom.xml clean package -DskipTests
 # Package stage
 #
 FROM openjdk:11-jre-slim
-COPY --from=build /home/app/target/filmm.jar /usr/local/lib/filmm.jar
+COPY --from=build /home/app/target/film-0.0.1-SNAPSHOT.jar /usr/local/lib/filmm.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/filmm.jar"]
