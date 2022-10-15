@@ -20,4 +20,8 @@ public class ItemController {
     private List<Item> listAll(){
         return this.service.findAll();
     }
+    @GetMapping("/string")
+    private String srt(){
+        return "hahahah";
+    }
 }

@@ -1,0 +1,8 @@
+mongodb:
+  name: mongodb
+  image: biseras/mongo
+  tag: latest
+  restartPolicy: Always
+  port: 27017
+  service:
+    name: mongoserv
