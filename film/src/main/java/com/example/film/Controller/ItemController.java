@@ -22,6 +22,6 @@ public class ItemController {
     }
     @GetMapping("/string")
     private String srt(){
-        return "hahahah";
+        return "hahahah22222";
     }
 }
