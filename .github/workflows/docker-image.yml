@@ -2,43 +2,43 @@ name: Login to Docker, build, tag, push and Azure Deploy
 on: [push]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
+#     build:
+#         runs-on: ubuntu-latest
+#         steps:
+#         - uses: actions/checkout@v2
     
-        - name: Login to DockerHub
-          uses: docker/login-action@v1
-          with:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUBTOKEN }}
+#         - name: Login to DockerHub
+#           uses: docker/login-action@v1
+#           with:
+#             username: ${{ secrets.DOCKERHUB_USERNAME }}
+#             password: ${{ secrets.DOCKERHUBTOKEN }}
         
-        - name: Build database image
-          run: |
-            docker build -t biseras/mongo ./
+#         - name: Build database image
+#           run: |
+#             docker build -t biseras/mongo ./
             
-        - name: Build backend image
-          run: |
-            docker build -t biseras/filmm ./film
+#         - name: Build backend image
+#           run: |
+#             docker build -t biseras/filmm ./film
             
-        - name: Docker database tag
-          run: |
-            docker tag biseras/mongo biseras/mongo
+#         - name: Docker database tag
+#           run: |
+#             docker tag biseras/mongo biseras/mongo
             
-        - name: Docker backend tag
-          run: |
-            docker tag biseras/filmm biseras/filmm
+#         - name: Docker backend tag
+#           run: |
+#             docker tag biseras/filmm biseras/filmm
         
-        - name: Docker push database image
-          run: |
-            docker push biseras/mongo
+#         - name: Docker push database image
+#           run: |
+#             docker push biseras/mongo
         
-        - name: Docker push backend image
-          run: |
-            docker push biseras/filmm
+#         - name: Docker push backend image
+#           run: |
+#             docker push biseras/filmm
             
     deploy:
-        needs: build
+#         needs: build
         runs-on:
             - self-hosted
         steps:
@@ -47,3 +47,5 @@ jobs:
             - name: Run scripts
               run: |
                 pwd
+                cd ../kii-proekt-film-
+                ls
