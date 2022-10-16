@@ -36,3 +36,14 @@ jobs:
         - name: Docker push backend image
           run: |
             docker push biseras/filmm
+            
+    deploy:
+        needs: build
+        runs-on:
+            - self-hosted
+        steps:
+            - uses: actions/checkout@v2
+            
+            - name: Run scripts
+              run: |
+                pwd
